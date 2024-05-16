@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио программиста</title>
+  <title>Портфолио веб-разработчика</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script> <!-- Подключаем файл скрипта -->
 </head>
 
 <body>
   <header>
-    <h1>Портфолио программиста</h1>
+    <h1>Портфолио веб-разработчика</h1>
     <nav>
       <ul>
         <li><a href="#" onclick="showSection('projects')">Проекты</a></li>
@@ -26,12 +26,16 @@
     <div class="project">
       <h3>Название проекта 1</h3>
       <p>Описание проекта 1</p>
-      <img src="project1.jpg" alt="Проект 1">
+      <div class="project-image" onclick="openModal('project1.jpg')">
+        <img src="project1_thumb.jpg" alt="Проект 1">
+      </div>
     </div>
     <div class="project">
       <h3>Название проекта 2</h3>
       <p>Описание проекта 2</p>
-      <img src="project2.jpg" alt="Проект 2">
+      <div class="project-image" onclick="openModal('project2.jpg')">
+        <img src="project2_thumb.jpg" alt="Проект 2">
+      </div>
     </div>
     <!-- Добавьте больше проектов по аналогии -->
   </section>
@@ -51,8 +55,15 @@
     <p>Краткое описание о себе и вашей профессиональной деятельности.</p>
   </section>
 
+  <div id="modal-container" class="modal-container">
+    <div id="modal-content" class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modal-image" src="" alt="Modal Image">
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2024 Портфолио программиста</p>
+    <p>&copy; 2024 Портфолио веб-разработчика</p>
   </footer>
 </body>
 
