@@ -14,13 +14,13 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      text-align: center;
     }
 
     header {
       background: #333;
       color: #fff;
       padding: 1rem;
-      text-align: center;
     }
 
     nav ul {
@@ -42,11 +42,13 @@
       padding: 2rem;
     }
 
-    .project {
-      margin-bottom: 2rem;
+    .project, .skill, .testimonial {
+      margin: 0 auto 2rem auto;
+      max-width: 600px;
+      text-align: left;
     }
 
-    .project img {
+    .project img, .testimonial img {
       width: 100%;
       height: auto;
       cursor: pointer;
@@ -93,6 +95,37 @@
       bottom: 0;
       width: 100%;
     }
+
+    .testimonial-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial {
+      display: none;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+    .testimonial-controls {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+    }
+
+    .testimonial-controls button {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 2rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -104,9 +137,15 @@
         <li><a href="#projects">Проекты</a></li>
         <li><a href="#skills">Навыки</a></li>
         <li><a href="#about">О себе</a></li>
+        <li><a href="#testimonials">Отзывы</a></li>
       </ul>
     </nav>
   </header>
+
+  <section id="intro">
+    <h2>Добро пожаловать в моё портфолио!</h2>
+    <p>Я профессиональный веб-разработчик с многолетним опытом создания эффективных и красивых сайтов. Здесь вы найдёте мои лучшие работы, навыки и отзывы довольных клиентов.</p>
+  </section>
 
   <section id="projects">
     <h2>Проекты</h2>
@@ -132,12 +171,36 @@
       <li>HTML</li>
       <li>CSS</li>
       <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
     </ul>
   </section>
 
   <section id="about">
     <h2>О себе</h2>
-    <p>Краткое описание о себе и вашей профессиональной деятельности.</p>
+    <p>Я веб-разработчик с опытом работы во фрилансе и крупными проектами. Моя цель - создавать сайты, которые не только привлекают внимание, но и эффективно решают задачи бизнеса.</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>Отзывы клиентов</h2>
+    <div class="testimonial-container">
+      <div class="testimonial active">
+        <p>"Отличная работа! Сайт получился именно таким, как я хотел. Спасибо!"</p>
+        <p>- Иван Иванов</p>
+      </div>
+      <div class="testimonial">
+        <p>"Быстро и качественно. Очень доволен результатом."</p>
+        <p>- Мария Петрова</p>
+      </div>
+      <div class="testimonial">
+        <p>"Превзошли все ожидания! Рекомендую всем."</p>
+        <p>- Сергей Сергеев</p>
+      </div>
+      <div class="testimonial-controls">
+        <button onclick="prevTestimonial()">&#10094;</button>
+        <button onclick="nextTestimonial()">&#10095;</button>
+      </div>
+    </div>
   </section>
 
   <div id="modal-container" class="modal-container">
@@ -163,6 +226,28 @@
       const modalContainer = document.getElementById('modal-container');
       modalContainer.style.display = 'none';
     }
+
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    function showTestimonial(index) {
+      testimonials.forEach((testimonial, i) => {
+        testimonial.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Initialize the first testimonial
+    showTestimonial(currentTestimonial);
   </script>
 </body>
 
