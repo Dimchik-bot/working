@@ -44,20 +44,27 @@
 
     .project, .skill, .testimonial {
       margin: 0 auto 2rem auto;
-      max-width: 600px;
+      max-width: 800px; /* Увеличена ширина */
       text-align: left;
     }
 
     .project-images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 1rem;
     }
 
     .project-images img {
-      width: calc(50% - 10px);
+      width: 100%;
       height: auto;
       cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .modal-container {
