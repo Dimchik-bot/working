@@ -126,6 +126,11 @@
       font-size: 2rem;
       cursor: pointer;
     }
+
+    .testimonial img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 
@@ -137,7 +142,7 @@
         <li><a href="#projects">Проекты</a></li>
         <li><a href="#skills">Навыки</a></li>
         <li><a href="#about">О себе</a></li>
-        <li><a href="#testimonials">Отзывы клеинтов</a></li>
+        <li><a href="#testimonials">Отзывы</a></li>
       </ul>
     </nav>
   </header>
@@ -153,14 +158,14 @@
       <h3>Название проекта 1</h3>
       <p>Описание проекта 1</p>
       <div class="project-image" onclick="openModal('project1.jpg')">
-        <img src="project_1.jpeg" alt="Проект 1">
+        <img src="not_photo.jpeg" alt="Проект 1">
       </div>
     </div>
     <div class="project">
       <h3>Название проекта 2</h3>
       <p>Описание проекта 2</p>
       <div class="project-image" onclick="openModal('project2.jpg')">
-        <img src="project_2.jpeg" alt="Проект 2">
+        <img src="not_photo.jpeg" alt="Проект 2">
       </div>
     </div>
   </section>
@@ -185,16 +190,29 @@
     <h2>Отзывы клиентов</h2>
     <div class="testimonial-container">
       <div class="testimonial active">
+        <img src="media/otzyv.jpg" alt="Отзыв 1">
         <p>"Отличная работа! Сайт получился именно таким, как я хотел. Спасибо!"</p>
         <p>- Иван Иванов</p>
       </div>
       <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 2">
         <p>"Быстро и качественно. Очень доволен результатом."</p>
         <p>- Мария Петрова</p>
       </div>
       <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 3">
         <p>"Превзошли все ожидания! Рекомендую всем."</p>
         <p>- Сергей Сергеев</p>
+      </div>
+      <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 4">
+        <p>"Очень профессиональный подход и внимание к деталям."</p>
+        <p>- Ольга Смирнова</p>
+      </div>
+      <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 5">
+        <p>"Сайт получился просто супер! Всем советую этого специалиста."</p>
+        <p>- Дмитрий Козлов</p>
       </div>
       <div class="testimonial-controls">
         <button onclick="prevTestimonial()">&#10094;</button>
