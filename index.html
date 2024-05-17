@@ -48,8 +48,14 @@
       text-align: left;
     }
 
-    .project img, .testimonial img {
-      width: 100%;
+    .project-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-images img {
+      width: calc(50% - 10px);
       height: auto;
       cursor: pointer;
     }
@@ -131,6 +137,41 @@
       max-width: 100%;
       height: auto;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill {
+      background: #f4f4f4;
+      border-radius: 10px;
+      padding: 1rem;
+      width: calc(33% - 2rem);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .skill:nth-child(1) { animation-delay: 0.1s; }
+    .skill:nth-child(2) { animation-delay: 0.2s; }
+    .skill:nth-child(3) { animation-delay: 0.3s; }
+    .skill:nth-child(4) { animation-delay: 0.4s; }
+    .skill:nth-child(5) { animation-delay: 0.5s; }
+
   </style>
 </head>
 
@@ -159,28 +200,30 @@
       <p>Создание основного сайта для Автономной некоммерческой организации развития профессиональных квалификаций 
         «ТехПрогресс», которая является дочерней организацией СРО АСК «МСК» и СРО АПК «МАП» и надежным 
         партнером в области развития квалификаций специалистов.</p>
-      <div class="project-image" onclick="openModal('project1.jpg')">
-        <img src="media/page_1.png" alt="Проект 1">
+      <div class="project-images">
+        <img src="media/page_1.png" alt="Проект 1" onclick="openModal('media/page_1.png')">
+        <img src="media/page_2.png" alt="Проект 1" onclick="openModal('media/page_2.png')">
       </div>
     </div>
     <div class="project">
       <h3>Название проекта 2</h3>
       <p>Описание проекта 2</p>
-      <div class="project-image" onclick="openModal('project2.jpg')">
-        <img src="not_photo.jpeg" alt="Проект 2">
+      <div class="project-images">
+        <img src="media/not_photo.jpeg" alt="Проект 2" onclick="openModal('media/not_photo.jpeg')">
+        <img src="media/not_photo.jpeg" alt="Проект 2" onclick="openModal('media/not_photo.jpeg')">
       </div>
     </div>
   </section>
 
   <section id="skills">
     <h2>Навыки</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Node.js</li>
-    </ul>
+    <div class="skill-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+    </div>
   </section>
 
   <section id="about">
