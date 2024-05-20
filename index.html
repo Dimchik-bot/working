@@ -6,7 +6,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Портфолио веб-разработчика</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script> <!-- Подключаем файл скрипта -->
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 2rem;
+    }
+
+    .project,
+    .skill,
+    .testimonial {
+      margin: 0 auto 2rem auto;
+      max-width: 800px;
+      /* Увеличена ширина */
+      text-align: left;
+    }
+
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 1rem;
+    }
+
+    .project-images img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .testimonial-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial {
+      display: none;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+    .testimonial-controls {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+    }
+
+    .testimonial-controls button {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .testimonial img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill {
+      background: #f4f4f4;
+      border-radius: 10px;
+      padding: 1rem;
+      width: calc(33% - 2rem);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .skill:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .skill:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .skill:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .skill:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .skill:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,45 +204,92 @@
     <h1>Портфолио веб-разработчика</h1>
     <nav>
       <ul>
-        <li><a href="#" onclick="showSection('projects')">Проекты</a></li>
-        <li><a href="#" onclick="showSection('skills')">Навыки</a></li>
-        <li><a href="#" onclick="showSection('about')">О себе</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#skills">Навыки</a></li>
+        <li><a href="#about">О себе</a></li>
+        <li><a href="#testimonials">Отзывы</a></li>
       </ul>
     </nav>
   </header>
 
+  <section id="intro">
+    <h2>Добро пожаловать в моё портфолио!</h2>
+    <p>Я профессиональный веб-разработчик с многолетним опытом создания эффективных и красивых сайтов. Здесь вы найдёте
+      мои лучшие работы, навыки и отзывы довольных клиентов.</p>
+  </section>
+
   <section id="projects">
     <h2>Проекты</h2>
     <div class="project">
-      <h3>Название проекта 1</h3>
-      <p>Описание проекта 1</p>
-      <div class="project-image" onclick="openModal('project1.jpg')">
-        <img src="project_1.jpeg" alt="Проект 1">
+      <h3>Основной сайт для АНО "ТехПрогресс"</h3>
+      <p>Создание основного сайта для Автономной некоммерческой организации развития профессиональных квалификаций
+        «ТехПрогресс», которая является дочерней организацией СРО АСК «МСК» и СРО АПК «МАП» и надежным
+        партнером в области развития квалификаций специалистов.</p>
+      <div class="project-images">
+        <img src="media/page_1.png" alt="Проект 1" onclick="openModal('media/page_1.png')">
+        <img src="media/page_2.png" alt="Проект 1" onclick="openModal('media/page_2.png')">
       </div>
     </div>
     <div class="project">
       <h3>Название проекта 2</h3>
       <p>Описание проекта 2</p>
-      <div class="project-image" onclick="openModal('project2.jpg')">
-        <img src="project_1.jpeg" alt="Проект 2">
+      <div class="project-images">
+        <img src="media/not_photo.jpeg" alt="Проект 2" onclick="openModal('media/not_photo.jpeg')">
+        <img src="media/not_photo.jpeg" alt="Проект 2" onclick="openModal('media/not_photo.jpeg')">
       </div>
     </div>
-    <!-- Добавьте больше проектов по аналогии -->
   </section>
 
-  <section id="skills" style="display: none;">
+  <section id="skills">
     <h2>Навыки</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <!-- Добавьте больше навыков по аналогии -->
-    </ul>
+    <div class="skill-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+    </div>
   </section>
 
-  <section id="about" style="display: none;">
+  <section id="about">
     <h2>О себе</h2>
-    <p>Краткое описание о себе и вашей профессиональной деятельности.</p>
+    <p>Я веб-разработчик с опытом работы во фрилансе и крупными проектами. Моя цель - создавать сайты, которые не только
+      привлекают внимание, но и эффективно решают задачи бизнеса.</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>Отзывы клиентов</h2>
+    <div class="testimonial-container">
+      <div class="testimonial active">
+        <img src="media/otzyv.jpg" alt="Отзыв 1">
+        <p>"Отличная работа! Сайт получился именно таким, как я хотел. Спасибо!"</p>
+        <p>- Иван Иванов</p>
+      </div>
+      <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 2">
+        <p>"Быстро и качественно. Очень доволен результатом."</p>
+        <p>- Мария Петрова</p>
+      </div>
+      <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 3">
+        <p>"Превзошли все ожидания! Рекомендую всем."</p>
+        <p>- Сергей Сергеев</p>
+      </div>
+      <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 4">
+        <p>"Очень профессиональный подход и внимание к деталям."</p>
+        <p>- Ольга Смирнова</p>
+      </div>
+      <div class="testimonial">
+        <img src="media/otzyv.jpg" alt="Отзыв 5">
+        <p>"Сайт получился просто супер! Всем советую этого специалиста."</p>
+        <p>- Дмитрий Козлов</p>
+      </div>
+      <div class="testimonial-controls">
+        <button onclick="prevTestimonial()">&#10094;</button>
+        <button onclick="nextTestimonial()">&#10095;</button>
+      </div>
+    </div>
   </section>
 
   <div id="modal-container" class="modal-container">
@@ -65,6 +302,42 @@
   <footer>
     <p>&copy; 2024 Портфолио веб-разработчика</p>
   </footer>
+
+  <script>
+    function openModal(imageSrc) {
+      const modalContainer = document.getElementById('modal-container');
+      const modalImage = document.getElementById('modal-image');
+      modalImage.src = imageSrc;
+      modalContainer.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modalContainer = document.getElementById('modal-container');
+      modalContainer.style.display = 'none';
+    }
+
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    function showTestimonial(index) {
+      testimonials.forEach((testimonial, i) => {
+        testimonial.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Initialize the first testimonial
+    showTestimonial(currentTestimonial);
+  </script>
 </body>
 
 </html>
