@@ -1,24 +1,26 @@
-/* Общие стили */
 body {
   font-family: Arial, sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-}
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+  box-sizing: border-box;
   text-align: center;
 }
 
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
 nav ul {
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
 }
 
 nav ul li {
   display: inline;
-  margin-right: 20px;
+  margin: 0 1rem;
 }
 
 nav ul li a {
@@ -27,64 +29,159 @@ nav ul li a {
 }
 
 section {
-  padding: 50px 20px;
+  padding: 2rem;
 }
 
-.project {
-  margin-bottom: 30px;
-}
+.project,
+.skill,
+.testimonial {
+  margin: 0 auto 2rem auto;
+  max-width: 800px;
+  /* Увеличена ширина */
 
-.project img {
-  max-width: 100%;
-  height: auto;
-}
+  .project-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 1rem;
+  }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+  .project-images img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-/* Стили для модального окна */
-.modal-container {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+  .project-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-}
+  .modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+  }
 
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
+  .modal-content {
+    background: #fff;
+    padding: 1rem;
+    position: relative;
+  }
 
-/* Анимации */
-.project-image {
-  position: relative;
-  overflow: hidden;
-}
+  .modal-content img {
+    max-width: 100%;
+    height: auto;
+  }
 
-.project-image img {
-  transition: transform 0.3s ease;
-}
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #333;
+  }
 
-.project-image:hover img {
-  transform: scale(1.1);
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .testimonial-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial {
+    display: none;
+  }
+
+  .testimonial.active {
+    display: block;
+  }
+
+  .testimonial-controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
+  .testimonial-controls button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .testimonial img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .skill {
+    background: #f4f4f4;
+    border-radius: 10px;
+    padding: 1rem;
+    width: calc(33% - 2rem);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .skill:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .skill:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .skill:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .skill:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  .skill:nth-child(5) {
+    animation-delay: 0.5s;
+  }
 }
