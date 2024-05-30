@@ -25,36 +25,3 @@ function closeModal() {
   modalContainer.style.display = 'none';
 }
 
-function openModal(imageSrc) {
-  const modalContainer = document.getElementById('modal-container');
-  const modalImage = document.getElementById('modal-image');
-  modalImage.src = imageSrc;
-  modalContainer.style.display = 'flex';
-}
-
-function closeModal() {
-  const modalContainer = document.getElementById('modal-container');
-  modalContainer.style.display = 'none';
-}
-
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll('.testimonial');
-
-function showTestimonial(index) {
-  testimonials.forEach((testimonial, i) => {
-    testimonial.classList.toggle('active', i === index);
-  });
-}
-
-function nextTestimonial() {
-  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-  showTestimonial(currentTestimonial);
-}
-
-function prevTestimonial() {
-  currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-  showTestimonial(currentTestimonial);
-}
-
-// Initialize the first testimonial
-showTestimonial(currentTestimonial);

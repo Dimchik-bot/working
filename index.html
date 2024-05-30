@@ -49,7 +49,7 @@
       <div class="project-images">
         <img src="media/not_photo.jpeg" alt="Проект 2_фото 1" onclick="openModal('media/not_photo.jpeg')">
         <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
-        <img scr="media/not_photo.jpeg" alt="Проект 2_фото 3" onclick="openModal('media/not_photo.jpeg')">
+        <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
       </div>
     </div>
     <div class="project">
@@ -58,7 +58,7 @@
       <div class="project-images">
         <img src="media/not_photo.jpeg" alt="Проект 2_фото 1" onclick="openModal('media/not_photo.jpeg')">
         <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
-        <img scr="media/not_photo.jpeg" alt="Проект 2_фото 3" onclick="openModal('media/not_photo.jpeg')">
+        <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
       </div>
     </div>
   </section>
@@ -121,7 +121,42 @@
       <img id="modal-image" src="" alt="Modal Image">
     </div>
   </div>
+  <script>
+    function openModal(imageSrc) {
+      const modalContainer = document.getElementById('modal-container');
+      const modalImage = document.getElementById('modal-image');
+      modalImage.src = imageSrc;
+      modalContainer.style.display = 'flex';
+    }
 
+    function closeModal() {
+      const modalContainer = document.getElementById('modal-container');
+      modalContainer.style.display = 'none';
+    }
+
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    function showTestimonial(index) {
+      testimonials.forEach((testimonial, i) => {
+        testimonial.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Initialize the first testimonial
+    showTestimonial(currentTestimonial);
+
+  </script>
   <footer>
     <p>&copy; 2024 Портфолио веб-разработчика</p>
   </footer>
