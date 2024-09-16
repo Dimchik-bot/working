@@ -1,165 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио веб-разработчика</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Казино Викторина</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <header>
-    <h1>Портфолио веб-разработчика Dim4ik0</h1>
-    <nav>
-      <ul>
-        <li><a href="#projects">Проекты</a></li>
-        <li><a href="#skills">Навыки</a></li>
-        <li><a href="#about">О себе</a></li>
-        <li><a href="#testimonials">Отзывы</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="container">
+        <header>
+            <h1>Детская Викторина</h1>
+            <p>Найди пары картинок и отвечай на вопросы, чтобы выиграть призы!</p>
+        </header>
 
-  <section id="intro">
-    <h2>Добро пожаловать в моё портфолио!</h2>
+        <section id="game-section">
+            <div class="memory-game">
+                <!-- Добавьте карточки здесь -->
+                <div class="card" data-pair="1">
+                    <img src="image1.png" alt="image1" class="front-face">
+                    <img src="back.png" alt="back" class="back-face">
+                </div>
+                <div class="card" data-pair="1">
+                    <img src="image1.png" alt="image1" class="front-face">
+                    <img src="back.png" alt="back" class="back-face">
+                </div>
+                <!-- Добавьте больше карточек по тому же шаблону -->
+            </div>
 
-    <p>Я профессиональный веб-разработчик с многолетним опытом создания эффективных и красивых сайтов. Здесь вы найдёте
-      мои лучшие работы, навыки и отзывы довольных клиентов.</p>
+            <button id="quiz-btn" disabled>Начать викторину</button>
+        </section>
 
-  </section>
+        <section id="quiz-section" style="display:none;">
+            <h2>Викторина</h2>
+            <p id="question"></p>
+            <div class="answers">
+                <button class="answer" data-answer="1"></button>
+                <button class="answer" data-answer="2"></button>
+                <button class="answer" data-answer="3"></button>
+                <button class="answer" data-answer="4"></button>
+            </div>
+            <p id="score"></p>
+        </section>
 
-  <section id="projects">
-    <h2>Проекты</h2>
-    <div class="project">
-      <h3>Основной сайт для АНО "ТехПрогресс"</h3>
-      <p>Создание основного сайта для Автономной некоммерческой организации развития профессиональных квалификаций
-        «ТехПрогресс», которая является дочерней организацией СРО АСК «МСК» и СРО АПК «МАП» и надежным
-        партнером в области развития квалификаций специалистов.</p>
-      <div class="project-images">
-        <img src="media/page_1.png" alt="Проект 1" onclick="openModal('media/page_1.png')">
-        <img src="media/page_2.png" alt="Проект 1" onclick="openModal('media/page_2.png')">
-        <img src="media/page_3.png" alt="Проект 1" onclick="openModal('media/page_3.png')">
-      </div>
+        <footer>
+            <p>Удачи в игре и викторине!</p>
+        </footer>
     </div>
-    <div class="project">
-      <h3>Название проекта 2</h3>
-      <p>Описание проекта 2</p>
-      <div class="project-images">
-        <img src="media/not_photo.jpeg" alt="Проект 2_фото 1" onclick="openModal('media/not_photo.jpeg')">
-        <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
-        <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
-      </div>
-    </div>
-    <div class="project">
-      <h3>Название проекта 3</h3>
-      <p>Описание проекта 3</p>
-      <div class="project-images">
-        <img src="media/not_photo.jpeg" alt="Проект 2_фото 1" onclick="openModal('media/not_photo.jpeg')">
-        <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
-        <img src="media/not_photo.jpeg" alt="Проект 2_фото 2" onclick="openModal('media/not_photo.jpeg')">
-      </div>
-    </div>
-  </section>
 
-  <section id="skills">
-    <h2>Навыки</h2>
-    <div class="skill-list">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">React</div>
-      <div class="skill">Node.js</div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h3>О себе</h3>
-    <p>Я веб-разработчик с опытом работы во фрилансе и крупными проектами. Моя цель - создавать сайты, которые не только
-      привлекают внимание, но и эффективно решают задачи бизнеса.</p>
-  </section>
-
-  <section id="testimonials">
-    <h2>Отзывы клиентов</h2>
-    <div class="testimonial-container">
-      <div class="testimonial active">
-        <img src="media/otzyv.jpg" alt="Отзыв 1">
-        <p>"Отличная работа! Сайт получился именно таким, как я хотел. Спасибо!"</p>
-        <p>- Иван Иванов</p>
-      </div>
-      <div class="testimonial">
-        <img src="media/otzyv.jpg" alt="Отзыв 2">
-        <p>"Быстро и качественно. Очень доволен результатом."</p>
-        <p>- Мария Петрова</p>
-      </div>
-      <div class="testimonial">
-        <img src="media/otzyv.jpg" alt="Отзыв 3">
-        <p>"Превзошли все ожидания! Рекомендую всем."</p>
-        <p>- Сергей Сергеев</p>
-      </div>
-      <div class="testimonial">
-        <img src="media/otzyv.jpg" alt="Отзыв 4">
-        <p>"Очень профессиональный подход и внимание к деталям."</p>
-        <p>- Ольга Смирнова</p>
-      </div>
-      <div class="testimonial">
-        <img src="media/otzyv.jpg" alt="Отзыв 5">
-        <p>"Сайт получился просто супер! Всем советую этого специалиста."</p>
-        <p>- Дмитрий Козлов</p>
-      </div>
-      <div class="testimonial-controls">
-        <button onclick="prevTestimonial()">&#10094;</button>
-        <button onclick="nextTestimonial()">&#10095;</button>
-      </div>
-    </div>
-  </section>
-
-  <div id="modal-container" class="modal-container">
-    <div id="modal-content" class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <img id="modal-image" src="" alt="Modal Image">
-    </div>
-  </div>
-  <script>
-    function openModal(imageSrc) {
-      const modalContainer = document.getElementById('modal-container');
-      const modalImage = document.getElementById('modal-image');
-      modalImage.src = imageSrc;
-      modalContainer.style.display = 'flex';
-    }
-
-    function closeModal() {
-      const modalContainer = document.getElementById('modal-container');
-      modalContainer.style.display = 'none';
-    }
-
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-
-    function showTestimonial(index) {
-      testimonials.forEach((testimonial, i) => {
-        testimonial.classList.toggle('active', i === index);
-      });
-    }
-
-    function nextTestimonial() {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      showTestimonial(currentTestimonial);
-    }
-
-    function prevTestimonial() {
-      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentTestimonial);
-    }
-
-    // Initialize the first testimonial
-    showTestimonial(currentTestimonial);
-
-  </script>
-  <footer>
-    <p>&copy; 2024 Портфолио веб-разработчика</p>
-  </footer>
+    <script src="script.js"></script>
 </body>
-
 </html>
