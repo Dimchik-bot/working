@@ -1,52 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Казино Викторина</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио модели</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Детская Викторина</h1>
-            <p>Найди пары картинок и отвечай на вопросы, чтобы выиграть призы!</p>
-        </header>
-
-        <section id="game-section">
-            <div class="memory-game">
-                <!-- Добавьте карточки здесь -->
-                <div class="card" data-pair="1">
-                    <img src="image1.png" alt="image1" class="front-face">
-                    <img src="back.png" alt="back" class="back-face">
-                </div>
-                <div class="card" data-pair="1">
-                    <img src="image1.png" alt="image1" class="front-face">
-                    <img src="back.png" alt="back" class="back-face">
-                </div>
-                <!-- Добавьте больше карточек по тому же шаблону -->
-            </div>
-
-            <button id="quiz-btn" disabled>Начать викторину</button>
-        </section>
-
-        <section id="quiz-section" style="display:none;">
-            <h2>Викторина</h2>
-            <p id="question"></p>
-            <div class="answers">
-                <button class="answer" data-answer="1"></button>
-                <button class="answer" data-answer="2"></button>
-                <button class="answer" data-answer="3"></button>
-                <button class="answer" data-answer="4"></button>
-            </div>
-            <p id="score"></p>
-        </section>
-
-        <footer>
-            <p>Удачи в игре и викторине!</p>
-        </footer>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Анна Иванова</h1>
+      <p>Fashion & Commercial Model</p>
     </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main>
+    <!-- Обо мне -->
+    <section id="about" class="section">
+      <h2>Обо мне</h2>
+      <p>Привет! Меня зовут Анна Иванова. Я профессиональная модель с опытом работы в fashion-индустрии. Я участвовала в модных показах, съемках для каталогов и рекламных кампаниях известных брендов.</p>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="section">
+      <h2>Портфолио</h2>
+      <div class="gallery">
+        <img src="photo1.jpg" alt="Фотосессия 1">
+        <img src="photo2.jpg" alt="Фотосессия 2">
+        <img src="photo3.jpg" alt="Фотосессия 3">
+        <img src="photo4.jpg" alt="Фотосессия 4">
+      </div>
+    </section>
+
+    <!-- Параметры -->
+    <section id="parameters" class="section">
+      <h2>Мои параметры</h2>
+      <ul>
+        <li>Рост: 175 см</li>
+        <li>Размер одежды: S</li>
+        <li>Обувь: 37 размер</li>
+        <li>Цвет волос: Блондинка</li>
+        <li>Цвет глаз: Зеленый</li>
+      </ul>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="section">
+      <h2>Связаться со мной</h2>
+      <form>
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Ваш email" required>
+        <textarea placeholder="Ваше сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Анна Иванова. Все права защищены.</p>
+  </footer>
 </body>
 </html>
